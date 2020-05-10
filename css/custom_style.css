@@ -1,0 +1,15 @@
+.para-1 {
+	color:#DF5704;
+	font-family: monospace;
+	font-weight: 700;
+	letter-spacing: .2em;
+	background-color: #ECECEC;
+	padding:20px;
+}
+
+.para-2 {
+	color:#200E0E;
+	font-family: monospace;
+	font-weight: 700;
+	background-color: #ECECEC;
+}
