@@ -28,6 +28,8 @@ class OUR_SIMPLE_PLUGIN {
 		add_action( 'woocommerce_before_cart_table', array($this,'wooco_cart2'), 10,0 );
 
 		add_action( 'woocommerce_cart_is_empty', array($this,'wooco_cart3'), 10,0 );
+		add_action( 'woocommerce_cart_totals_after_order_total', array($this,'wooco_cart4'), 10,0 );
+
 
 
 
@@ -79,8 +81,15 @@ public function wooco_cart2() {
 }
 
 public function wooco_cart3() {
- 	get_empty() 
+ 	echo '<p class="woocommerce-info">I am a test action as used 	woocommerce_before_cart_table action</p>';
 }
+
+public function wooco_cart4() {
+ 	echo '<a href="../" class="woocommerce-info">Ready to pay sir</a>';
+}
+
+
+
 }
 
 
