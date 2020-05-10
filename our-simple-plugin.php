@@ -17,7 +17,11 @@
  **/ 
 
 class OUR_SIMPLE_PLUGIN {
+
+
 	public function __construct() {
+		
+
 		add_action('init', array($this, 'init'), 10, 0);
 
 		//testing and familiar with actions
@@ -31,10 +35,10 @@ class OUR_SIMPLE_PLUGIN {
 		add_action( 'woocommerce_cart_totals_after_order_total', array($this,'wooco_cart4'), 10,0 );
 
 
-
-
-
+		add_action( 'WP_ENEQUEUE_SCRIPTS' , array($this,'my_style'), 10,0);
 	}
+
+
 
 	public function init() {
 		add_filter('the_title', array($this, 'filtered_title'), 10, 2);
@@ -66,6 +70,9 @@ class OUR_SIMPLE_PLUGIN {
   	return $new_price;
  }
 
+public function my_style() {
+	wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), filemtime(get_template_directory() . '/css/style.css'), false);
+}
 
 
 public function wpdesk_cart_free_shipping_text() {
@@ -81,14 +88,12 @@ public function wooco_cart2() {
 }
 
 public function wooco_cart3() {
- 	echo '<p class="woocommerce-info">I am a test action as used 	woocommerce_before_cart_table action</p>';
+ 	echo '<p class="woocommerce-info para-1">I am a test action as used 	woocommerce_before_cart_table action</p>';
 }
 
 public function wooco_cart4() {
- 	echo '<a href="../" class="woocommerce-info">Ready to pay sir</a>';
+ 	echo '<p href="../" class="para-1" >Ready to pay sir</p>';
 }
-
-
 
 }
 
