@@ -75,7 +75,7 @@ public function wooco_cart() {
 }
 
 public function wooco_cart2() {
-	echo '<p class="woocommerce-info">I am a test action who used 	woocommerce_before_cart_table action</p>';
+	echo '<p class="woocommerce-info">I am a test action as used 	woocommerce_before_cart_table action</p>';
 }
 
 public function wooco_cart3() {
