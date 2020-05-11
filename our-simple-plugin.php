@@ -17,7 +17,9 @@
  **/
 
  define( 'OUR_SIMPLE_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
+ define( 'OUR_SIMPLE_SCRIPT_URI', plugin_dir_url( __FILE__ ) );
  define( 'OUR_SIMPLE_PLUGIN_VERSION', '1.0.0.' );
+ define( 'OUR_SIMPLE_SCRIPT_VERSION', '1.0.0' );
 
 class OUR_SIMPLE_PLUGIN {
 
@@ -54,6 +56,7 @@ class OUR_SIMPLE_PLUGIN {
 		add_filter( 'admin_footer_text', array( $this, 'footer_manupulation' ), 10, 1 );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_plugin_styles' ), 10, 0 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enequeue_script_custom_loader' ), 10, 0 );
 
 	}
 
@@ -90,7 +93,7 @@ class OUR_SIMPLE_PLUGIN {
 		$new_price = $original_price;
 		return $new_price;
 	}
- 
+
 
 
 	/** adding stylesheet
@@ -102,6 +105,10 @@ class OUR_SIMPLE_PLUGIN {
 		wp_enqueue_style( 'our-custom-plugin-style' );
 	}
 
+	public function enequeue_script_custom_loader() {
+		wp_register_script( 'OUR_SIMPLE_PLUGIN_MAIN_SCRIPT', OUR_SIMPLE_SCRIPT_URI . '/js/customize-main.js', array(), OUR_SIMPLE_SCRIPT_VERSION, true );
+		wp_enqueue_script( 'OUR_SIMPLE_PLUGIN_MAIN_SCRIPT' );
+	}
 
 	/** Adding   text
 	 *
