@@ -1,2 +1,2 @@
 console.log('hello me');
-console.log(Math.random() * 121212);
+console.log(Math.random() * 22);
